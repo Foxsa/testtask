@@ -30,5 +30,5 @@ ADD gagarin tests/gagarin
 #ENV PORT 8080
 #EXPOSE   8080
 
-CMD "/bin/meteor --port $PORT -"
-#ENTRYPOINT /bin/bash
+#CMD "/bin/meteor --port $PORT -"
+ENTRYPOINT /bin/bash

@@ -31,4 +31,4 @@ ENV PORT 8080
 EXPOSE   8080
 
 CMD meteor --port $PORT
-#ENTRYPOINT /bin/bash
+ENTRYPOINT /bin/bash

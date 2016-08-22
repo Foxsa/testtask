@@ -1,0 +1,12 @@
+java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ -i ~/.ssh/id_rsa get-job meteor >  testtaskjob.xml
+docker build -t asavin/jenkins:1.0 .
+docker run -d -p8081:8080 -p50001:50001 --name=jenkins -t asavin/jenkins:1.0
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+
+#init jenkins
+#set port to 50001
+#add docker-build-step plugin 
+#configure docker url: tcp://172.17.0.1:2375
+#configure Docker version: 1.12.1
+#add ssh key
+java -jar jenkins-cli.jar -s http://127.0.0.1:8081/ -i ~/.ssh/id_rsa create-job meteor <  testtaskjob.xml
